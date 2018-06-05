@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "UpdatedTaskDetails";
+}
+@model TaskListManager.Models.TasksTable
+<h2>UpdatedTaskDetails</h2>
+<form action="/Home/SaveTaskUpdates" method="post">
+    Username:    <input type="text" name="UserName" required value="@Model.UserName"/>
+    Description: <input type="text" name="Description" required value="@Model.Description" /><br />
+    Due Date:    <input type="date" name="DueDate" required value="@Model.DueDate"/><br />
+    Status:      <select name="Status">
+                 <option value="Incomplete">Incomplete</option>
+                 <option value="Complete">Complete</option>
+                 </select><br />
+
+    <input type="submit" value="Add Task" />
+</form>

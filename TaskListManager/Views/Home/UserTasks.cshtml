@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "UserTasks";
+}
+@model TaskListManager.Models.TasksTable
+<h2>Admin</h2>
+<form action="/Home/UserTasks" method="get">
+
+    <table class=" table">
+
+        <tr>
+            <th>Username</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Task Number</th>
+        </tr>
+        @foreach (var c in ViewBag.TaskList)
+         {
+
+            <tr>
+                <td>@c.UserName</td>
+                <td>@c.Description</td>
+                <td>@c.DueDate</td>
+                <td><select name="Status"></select>@c.Status</td>
+                <td>@c.TaskNumber</td>
+                <td>
+                    <a href="/Home/DeleteTask?TaskNumber=@c.TaskNumber" onclick="return confirm('Are you sure you want to delete')" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-trash"></span> Delete<br />
+                    </a>
+                    <a href="/Home/UpdateTaskList?TaskNumber=@c.TaskNumber" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </a>
+            </tr>
+         }
+    </table>
+    </form>
+<a href="~/Home/AddTaskDetails" class="btn btn-default">Add Task</a>
+
+

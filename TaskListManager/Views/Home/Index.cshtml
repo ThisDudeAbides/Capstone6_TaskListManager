@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+<h1>Welcome to the Task List Organizer!!!</h1>
+<h4>Please sign in below:</h4>
+<form action="/Home/SignIn" method="post">
+    Username: <input type="text" name="UserName" /><br />
+    Password: <input type="password" name="Password" /><br />
+    <input type="submit" value="Sign In" />
+</form>
+<span id="error">@ViewBag.Error</span>
